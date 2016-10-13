@@ -1,0 +1,31 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="moe.feng.nyanpasu.tile">
+
+	<application
+		android:allowBackup="true"
+		android:icon="@mipmap/ic_launcher"
+		android:label="@string/app_name"
+		android:supportsRtl="true"
+		android:theme="@style/AppTheme">
+
+		<service android:name=".tiles.WeatherTile"
+		         android:icon="@drawable/ic_wb_sunny_white_24dp"
+		         android:label="@string/weather_tile_label"
+		         android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+			<intent-filter>
+				<action android:name="android.service.quicksettings.action.QS_TILE"/>
+			</intent-filter>
+		</service>
+
+		<service android:name=".tiles.ScanQrTile"
+		         android:icon="@drawable/ic_center_focus_weak_white_24dp"
+		         android:label="@string/scan_qr_tile_label"
+		         android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+			<intent-filter>
+				<action android:name="android.service.quicksettings.action.QS_TILE"/>
+			</intent-filter>
+		</service>
+
+	</application>
+
+</manifest>

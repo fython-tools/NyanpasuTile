@@ -1,0 +1,11 @@
+<resources>
+
+	<string name="app_name">NyanpasuTile</string>
+
+	<!-- Weather -->
+	<string name="weather_tile_label">Weather</string>
+
+	<!-- Scan QR -->
+	<string name="scan_qr_tile_label">Scan QR</string>
+
+</resources>
