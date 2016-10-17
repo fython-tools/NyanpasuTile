@@ -2,10 +2,40 @@
 
 	<string name="app_name">NyanpasuTile</string>
 
+	<!-- Main Settings -->
+	<string name="title_tiles">Tiles</string>
+	<string name="title_other">Other</string>
+	<string name="pref_about">About</string>
+	<string name="pref_donate_alipay">Donate (Alipay)</string>
+	<string name="pref_donate_alipay_address">316643843\@qq.com</string>
+	<string name="pref_donate_alipay_address_copied">Copied to clipboard.</string>
+
 	<!-- Weather -->
 	<string name="weather_tile_label">Weather</string>
 
 	<!-- Scan QR -->
 	<string name="scan_qr_tile_label">Scan QR</string>
+	<string name="pref_scan_method">Default scanner</string>
+	<string-array name="pref_scan_method_arrays">
+		<item>NyanpasuTile</item>
+		<item>Alipay</item>
+		<item>WeChat</item>
+	</string-array>
+	<string-array name="pref_scan_method_value">
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+	</string-array>
+
+	<!-- Scanner -->
+	<string name="activity_scanner">Scan barcode</string>
+	<string name="dialog_explanation_permission_title">Permission Denied</string>
+	<string name="dialog_explanation_permission_message">The scanner is built-in plugin so it needs users to grant camera permission for working normally. Without permission, you cannot scan barcode.</string>
+	<string name="dialog_explanation_permission_pos_btn">Go to Settings</string>
+	<string name="toast_permission_denied">Permission denied. Cannot start scanner.</string>
+	<string name="toast_permission_denied_action">Settings</string>
+
+	<string name="dialog_result">Result</string>
+	<string name="dialog_result_copy_btn">Copy to clipboard</string>
 
 </resources>

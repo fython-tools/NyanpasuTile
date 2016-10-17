@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<PreferenceCategory android:title="@string/title_tiles">
+
+		<Preference android:key="scan_qr" android:title="@string/scan_qr_tile_label"/>
+
+	</PreferenceCategory>
+
+	<PreferenceCategory android:title="@string/title_other">
+
+		<Preference android:key="about"
+		            android:title="@string/pref_about"/>
+		<Preference android:key="donate"
+		            android:title="@string/pref_donate_alipay"
+		            android:summary="@string/pref_donate_alipay_address"/>
+
+	</PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<SimpleMenuPreference android:key="scan_method"
+		android:title="@string/pref_scan_method"
+		android:summary="%s"
+		android:entries="@array/pref_scan_method_arrays"
+		android:entryValues="@array/pref_scan_method_value"
+		android:defaultValue="0"/>
+
+</PreferenceScreen>
