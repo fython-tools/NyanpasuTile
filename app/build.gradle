@@ -32,8 +32,8 @@ dependencies {
 	compile 'com.google.code.gson:gson:2.7'
 
 	compile 'com.github.clans:fab:1.6.4'
-	compile 'me.dm7.barcodescanner:zxing:1.8.4'
 	compile 'moe.feng:AlipayZeroSdk:1.0.1'
 
 	compile project(':libraries:MaterialPreference')
+	compile project(':libraries:barcodescanner-zxing')
 }

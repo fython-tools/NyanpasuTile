@@ -9,8 +9,6 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
@@ -55,7 +53,7 @@ public class ScannerActivity extends Activity implements ZXingScannerView.Result
 				ScreenUtils.getNavigationBarHeight(this);
 
 		if (!isCameraPermissionGranted()) {
-			if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
+			if (shouldShowRequestPermissionRationale(Manifest.permission.CAMERA)) {
 				new AlertDialog.Builder(this)
 						.setTitle(R.string.dialog_explanation_permission_title)
 						.setMessage(R.string.dialog_explanation_permission_message)
@@ -63,8 +61,7 @@ public class ScannerActivity extends Activity implements ZXingScannerView.Result
 						.setNegativeButton(android.R.string.cancel, null)
 						.show();
 			} else {
-				ActivityCompat.requestPermissions(
-						this,
+				requestPermissions(
 						new String[]{Manifest.permission.CAMERA},
 						REQUEST_PERMISSION
 				);
@@ -101,7 +98,7 @@ public class ScannerActivity extends Activity implements ZXingScannerView.Result
 	}
 
 	private boolean isCameraPermissionGranted() {
-		return ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED;
+		return checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED;
 	}
 
 	private void jumpToSettings() {

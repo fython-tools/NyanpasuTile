@@ -6,8 +6,6 @@ import moe.feng.nyanpasu.tile.R;
 import moe.feng.nyanpasu.tile.ui.fragment.AbsPrefFragment;
 import moe.feng.nyanpasu.tile.util.Settings;
 import rikka.materialpreference.ListPreference;
-import rikka.materialpreference.Preference;
-import rikka.materialpreference.Preference.OnPreferenceChangeListener;
 
 public class SettingsScanQr extends AbsPrefFragment {
 

@@ -1,2 +1,4 @@
 include ':app',
-		':libraries:MaterialPreference'
+		':libraries:MaterialPreference',
+		':libraries:barcodescanner-core',
+		':libraries:barcodescanner-zxing'
