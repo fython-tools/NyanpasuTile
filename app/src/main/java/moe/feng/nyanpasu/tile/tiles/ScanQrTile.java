@@ -1,7 +1,6 @@
 package moe.feng.nyanpasu.tile.tiles;
 
 import android.service.quicksettings.TileService;
-import android.util.Log;
 
 import moe.feng.nyanpasu.tile.api.ScanQrApi;
 import moe.feng.nyanpasu.tile.util.Settings;
@@ -19,7 +18,6 @@ public class ScanQrTile extends TileService {
 	@Override
 	public void onClick() {
 		super.onClick();
-		Log.i("Test", "Value:" + mSettings.get("method", "0"));
 		switch (mSettings.get("method", "0")) {
 			case "1":
 				ScanQrApi.openAlipayScan(this);

@@ -10,7 +10,7 @@
 		android:layout_height="match_parent"
 		android:id="@+id/scanner_view"/>
 	
-	<com.melnykov.fab.FloatingActionButton
+	<com.github.clans.fab.FloatingActionButton
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:id="@+id/btn_exit"

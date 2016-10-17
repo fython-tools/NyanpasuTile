@@ -5,41 +5,54 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.zxing.Result;
-import com.melnykov.fab.FloatingActionButton;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 import moe.feng.nyanpasu.tile.R;
 import moe.feng.nyanpasu.tile.util.ClipboardUtils;
+import moe.feng.nyanpasu.tile.util.ScreenUtils;
 
 public class ScannerActivity extends Activity implements ZXingScannerView.ResultHandler {
 
-	private FloatingActionButton mFAB;
 	private ImageButton mGalleryBtn;
 	private ZXingScannerView mScannerView;
 
 	private static final int REQUEST_PERMISSION = 20001;
 
+	private static final int ACTIVITY_VISIBILITY = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+			| View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		getWindow().getDecorView().setSystemUiVisibility(ACTIVITY_VISIBILITY);
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+		getWindow().setStatusBarColor(Color.TRANSPARENT);
+		getWindow().setNavigationBarColor(Color.TRANSPARENT);
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_scanner);
 
 		mScannerView = (ZXingScannerView) findViewById(R.id.scanner_view);
-		mFAB = (FloatingActionButton) findViewById(R.id.btn_exit);
 		mGalleryBtn = (ImageButton) findViewById(R.id.btn_gallery);
 
-		mFAB.setOnClickListener((view) -> {
+		View fab = findViewById(R.id.btn_exit);
+		fab.setOnClickListener((view) -> {
 			onBackPressed();
 		});
+		((FrameLayout.LayoutParams) fab.getLayoutParams()).bottomMargin +=
+				ScreenUtils.getNavigationBarHeight(this);
 
 		if (!isCameraPermissionGranted()) {
 			if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
