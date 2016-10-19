@@ -5,6 +5,7 @@ import android.util.Log;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -64,6 +65,50 @@ public class CmdUtils {
 		return result;
 	}
 
+	public static int execRootCmdForExitCode(String[] cmds) {
+		int result = -1;
+		DataOutputStream dos = null;
+		DataInputStream dis = null;
+
+		try {
+			Process p = Runtime.getRuntime().exec("su");
+			dos = new DataOutputStream(p.getOutputStream());
+			dis = new DataInputStream(p.getInputStream());
+
+			for (String cmd : cmds) {
+				Log.i("CmdUtils", cmd);
+				dos.writeBytes(cmd + "\n");
+				dos.flush();
+			}
+			dos.writeBytes("exit\n");
+			dos.flush();
+			String line;
+			while ((line = dis.readLine()) != null) {
+				Log.d("result", line);
+			}
+			p.waitFor();
+			result = p.exitValue();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (dos != null) {
+				try {
+					dos.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			if (dis != null) {
+				try {
+					dis.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return result;
+	}
+
 	private static String propReader(String filter) {
 		Process process = null;
 		try {
@@ -92,6 +137,25 @@ public class CmdUtils {
 	public static boolean isNetworkAdbEnabled() {
 		String result = propReader("service.adb.tcp.port");
 		return !result.contains("-1") && result.contains("service.adb.tcp.port");
+	}
+
+	public static boolean isRooted() {
+		return findBinary("su");
+	}
+
+	public static boolean findBinary(String binaryName) {
+		boolean found = false;
+		if (!found) {
+			String[] places = {"/sbin/", "/system/bin/", "/system/xbin/", "/data/local/xbin/",
+					"/data/local/bin/", "/system/sd/xbin/", "/system/bin/failsafe/", "/data/local/"};
+			for (String where : places) {
+				if (new File( where + binaryName ).exists()){
+					found = true;
+					break;
+				}
+			}
+		}
+		return found;
 	}
 
 }

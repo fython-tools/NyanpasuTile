@@ -41,4 +41,10 @@
 	<!-- Network Adb -->
 	<string name="network_adb_tile_label">Adb Over LAN</string>
 
+	<!-- Root Check -->
+	<string name="root_check_desc">This operation needs root permission. We will launch this window to initialize. </string>
+	<string name="root_check_state_please_wait">Please wait....</string>
+	<string name="root_check_state_failed">Failed to access root permission.</string>
+	<string name="root_check_state_finish">Finish. Now you can close this window.</string>
+
 </resources>
