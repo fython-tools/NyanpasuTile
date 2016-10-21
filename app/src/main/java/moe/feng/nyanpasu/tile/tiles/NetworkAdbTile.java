@@ -7,6 +7,7 @@ import android.service.quicksettings.TileService;
 import moe.feng.nyanpasu.tile.R;
 import moe.feng.nyanpasu.tile.ui.RootCheckActivity;
 import moe.feng.nyanpasu.tile.util.CmdUtils;
+import moe.feng.nyanpasu.tile.util.NetworkUtils;
 import moe.feng.nyanpasu.tile.util.Settings;
 
 public class NetworkAdbTile extends TileService {
@@ -26,6 +27,7 @@ public class NetworkAdbTile extends TileService {
 			} else {
 				CmdUtils.execRootCmd(CmdUtils.START_NET_ADB);
 				getQsTile().setIcon(Icon.createWithResource(this, R.drawable.ic_phonelink_white_24dp));
+				getQsTile().setLabel(NetworkUtils.getHostIP() + ":" + "5555");
 				getQsTile().updateTile();
 			}
 		}
