@@ -7,8 +7,9 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import moe.feng.nyanpasu.tile.R;
+import moe.feng.nyanpasu.tile.ui.fragment.settings.SettingAbout;
 import moe.feng.nyanpasu.tile.ui.fragment.settings.SettingMain;
-import moe.feng.nyanpasu.tile.ui.fragment.settings.SettingsScanQr;
+import moe.feng.nyanpasu.tile.ui.fragment.settings.SettingScanQr;
 
 public class SettingsActivity extends Activity {
 
@@ -38,8 +39,11 @@ public class SettingsActivity extends Activity {
 			case FLAG_MAIN:
 				fragment = new SettingMain();
 				break;
+			case FLAG_ABOUT:
+				fragment = new SettingAbout();
+				break;
 			case FLAG_SCAN_QR:
-				fragment = new SettingsScanQr();
+				fragment = new SettingScanQr();
 				break;
 		}
 

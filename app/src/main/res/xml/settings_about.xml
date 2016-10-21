@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<PreferenceCategory android:title="@string/pref_application">
+
+		<Preference android:key="app_version"
+		            android:title="@string/app_name"/>
+
+		<Preference android:key="github"
+		            android:title="@string/pref_github"
+		            android:summary="@string/pref_github_url"/>
+
+	</PreferenceCategory>
+
+	<PreferenceCategory android:title="@string/pref_author">
+
+		<Preference android:key="weibo"
+		            android:title="@string/pref_weibo"
+		            android:summary="@string/pref_weibo_url"/>
+
+		<Preference android:key="email"
+		            android:title="@string/pref_email"
+		            android:summary="@string/pref_email_address"/>
+
+	</PreferenceCategory>
+
+</PreferenceScreen>

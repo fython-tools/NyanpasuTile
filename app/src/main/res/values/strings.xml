@@ -10,6 +10,16 @@
 	<string name="pref_donate_alipay_address">316643843\@qq.com</string>
 	<string name="pref_donate_alipay_address_copied">Copied to clipboard.</string>
 
+	<string name="pref_application">Application</string>
+	<string name="app_version_format">%1$s (%2$d)</string>
+	<string name="pref_github">Github Repository</string>
+	<string name="pref_github_url">https://github.com/fython/NyanpasuTile</string>
+	<string name="pref_author">Author</string>
+	<string name="pref_weibo">Sina Weibo</string>
+	<string name="pref_weibo_url">http://weibo.com/fython</string>
+	<string name="pref_email">Email</string>
+	<string name="pref_email_address">fython\@163.com</string>
+
 	<!-- Weather -->
 	<string name="weather_tile_label">Weather</string>
 
