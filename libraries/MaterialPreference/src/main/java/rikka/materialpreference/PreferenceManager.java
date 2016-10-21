@@ -18,7 +18,6 @@ package rikka.materialpreference;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.v4.content.SharedPreferencesCompat;
 
 /**
  * Used to help create {@link Preference} hierarchies
@@ -334,7 +333,7 @@ public class PreferenceManager {
             SharedPreferences.Editor editor =
                     defaultValueSp.edit().putBoolean(KEY_HAS_SET_DEFAULT_VALUES, true);
 
-            SharedPreferencesCompat.EditorCompat.getInstance().apply(editor);
+            editor.apply();
         }
     }
 
@@ -372,7 +371,7 @@ public class PreferenceManager {
 
     private void setNoCommit(boolean noCommit) {
         if (!noCommit && mEditor != null) {
-            SharedPreferencesCompat.EditorCompat.getInstance().apply(mEditor);
+            mEditor.apply();
         }
         mNoCommit = noCommit;
     }

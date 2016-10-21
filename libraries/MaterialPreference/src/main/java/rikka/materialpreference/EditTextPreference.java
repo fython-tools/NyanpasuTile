@@ -21,7 +21,6 @@ import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
 import android.app.DialogFragment;
 import rikka.materialpreference.util.TypedArrayUtils;
 import android.text.InputType;
@@ -90,7 +89,7 @@ public class EditTextPreference extends DialogPreference {
         this(context, null);
     }
 
-    @NonNull
+
     @Override
     protected DialogFragment onCreateDialogFragment(String key) {
         final EditTextPreferenceDialogFragment

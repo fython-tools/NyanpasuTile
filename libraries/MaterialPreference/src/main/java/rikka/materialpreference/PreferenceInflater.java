@@ -20,8 +20,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.XmlResourceParser;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Xml;
 import android.view.InflateException;
@@ -108,7 +106,7 @@ class PreferenceInflater {
      *         this is the root item; otherwise it is the root of the inflated
      *         XML file.
      */
-    public Preference inflate(int resource, @Nullable PreferenceGroup root) {
+    public Preference inflate(int resource, PreferenceGroup root) {
         XmlResourceParser parser = getContext().getResources().getXml(resource);
         try {
             return inflate(parser, root);
@@ -136,7 +134,7 @@ class PreferenceInflater {
      *         this is root; otherwise it is the root of
      *         the inflated XML file.
      */
-    public Preference inflate(XmlPullParser parser, @Nullable PreferenceGroup root) {
+    public Preference inflate(XmlPullParser parser, PreferenceGroup root) {
         synchronized (mConstructorArgs) {
             final AttributeSet attrs = Xml.asAttributeSet(parser);
             mConstructorArgs[0] = mContext;
@@ -181,8 +179,8 @@ class PreferenceInflater {
         }
     }
 
-    private @NonNull PreferenceGroup onMergeRoots(PreferenceGroup givenRoot,
-            @NonNull PreferenceGroup xmlRoot) {
+    private  PreferenceGroup onMergeRoots(PreferenceGroup givenRoot,
+             PreferenceGroup xmlRoot) {
         // If we were given a Preferences, use it as the root (ignoring the root
         // Preferences from the XML file).
         if (givenRoot == null) {
@@ -210,7 +208,7 @@ class PreferenceInflater {
      *
      * @return The newly instantied item, or null.
      */
-    private Preference createItem(@NonNull String name, @Nullable String[] prefixes,
+    private Preference createItem( String name, String[] prefixes,
             AttributeSet attrs)
             throws ClassNotFoundException, InflateException {
         Constructor constructor = CONSTRUCTOR_MAP.get(name);

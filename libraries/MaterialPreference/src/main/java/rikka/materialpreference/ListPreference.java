@@ -21,8 +21,6 @@ import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.ArrayRes;
-import android.support.annotation.NonNull;
 import android.app.DialogFragment;
 import rikka.materialpreference.util.TypedArrayUtils;
 import android.text.TextUtils;
@@ -83,7 +81,7 @@ public class ListPreference extends DialogPreference {
         this(context, null);
     }
 
-    @NonNull
+
     @Override
     protected DialogFragment onCreateDialogFragment(String key) {
         final ListPreferenceDialogFragment
@@ -112,7 +110,7 @@ public class ListPreference extends DialogPreference {
      * @see #setEntries(CharSequence[])
      * @param entriesResId The entries array as a resource.
      */
-    public void setEntries(@ArrayRes int entriesResId) {
+    public void setEntries(int entriesResId) {
         setEntries(getContext().getResources().getTextArray(entriesResId));
     }
 
@@ -140,7 +138,7 @@ public class ListPreference extends DialogPreference {
      * @see #setEntryValues(CharSequence[])
      * @param entryValuesResId The entry values array as a resource.
      */
-    public void setEntryValues(@ArrayRes int entryValuesResId) {
+    public void setEntryValues(int entryValuesResId) {
         setEntryValues(getContext().getResources().getTextArray(entryValuesResId));
     }
 
@@ -306,7 +304,7 @@ public class ListPreference extends DialogPreference {
         }
 
         @Override
-        public void writeToParcel(@NonNull Parcel dest, int flags) {
+        public void writeToParcel( Parcel dest, int flags) {
             super.writeToParcel(dest, flags);
             dest.writeString(value);
         }

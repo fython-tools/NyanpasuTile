@@ -22,10 +22,7 @@ import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.ArrayRes;
-import android.support.annotation.NonNull;
 import android.app.DialogFragment;
-import android.support.v4.content.SharedPreferencesCompat;
 import rikka.materialpreference.util.TypedArrayUtils;
 import android.util.AttributeSet;
 
@@ -80,7 +77,7 @@ public class MultiSelectListPreference extends DialogPreference {
         this(context, null);
     }
 
-    @NonNull
+
     @Override
     protected DialogFragment onCreateDialogFragment(String key) {
         final MultiSelectListPreferenceDialogFragment
@@ -116,7 +113,7 @@ public class MultiSelectListPreference extends DialogPreference {
 
             SharedPreferences.Editor editor = getPreferenceManager().getSharedPreferences().edit();
             editor.putStringSet(getKey(), values);
-            SharedPreferencesCompat.EditorCompat.getInstance().apply(editor);
+            editor.apply();
             return true;
         }
         return false;
@@ -165,7 +162,7 @@ public class MultiSelectListPreference extends DialogPreference {
      * @see #setEntries(CharSequence[])
      * @param entriesResId The entries array as a resource.
      */
-    public void setEntries(@ArrayRes int entriesResId) {
+    public void setEntries(int entriesResId) {
         setEntries(getContext().getResources().getTextArray(entriesResId));
     }
 
@@ -193,7 +190,7 @@ public class MultiSelectListPreference extends DialogPreference {
      * @see #setEntryValues(CharSequence[])
      * @param entryValuesResId The entry values array as a resource.
      */
-    public void setEntryValues(@ArrayRes int entryValuesResId) {
+    public void setEntryValues(int entryValuesResId) {
         setEntryValues(getContext().getResources().getTextArray(entryValuesResId));
     }
 
@@ -317,7 +314,7 @@ public class MultiSelectListPreference extends DialogPreference {
         }
 
         @Override
-        public void writeToParcel(@NonNull Parcel dest, int flags) {
+        public void writeToParcel( Parcel dest, int flags) {
             super.writeToParcel(dest, flags);
             dest.writeInt(values.size());
             dest.writeStringArray(values.toArray(new String[values.size()]));

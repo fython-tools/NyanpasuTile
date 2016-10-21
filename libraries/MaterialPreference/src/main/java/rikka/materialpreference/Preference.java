@@ -24,9 +24,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.content.SharedPreferencesCompat;
 import rikka.materialpreference.util.TypedArrayUtils;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -39,43 +36,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Represents the basic Preference UI building
- * block displayed by a {@link PreferenceFragment} in the form of a
- * {@link android.support.v7.widget.RecyclerView}. This class provides data for the
- * {@link android.view.View} to be displayed
- * in the list and associates with a {@link SharedPreferences} to
- * store/retrieve the preference data.
- * <p>
- * When specifying a preference hierarchy in XML, each element can point to a
- * subclass of {@link Preference}, similar to the view hierarchy and layouts.
- * <p>
- * This class contains a {@code key} that will be used as the key into the
- * {@link SharedPreferences}. It is up to the subclass to decide how to store
- * the value.
- *
- * <div class="special reference">
- * <h3>Developer Guides</h3>
- * <p>For information about building a settings UI with Preferences,
- * read the <a href="{@docRoot}guide/topics/ui/settings.html">Settings</a>
- * guide.</p>
- * </div>
- *
- * @attr ref android.R.styleable#Preference_icon
- * @attr ref android.R.styleable#Preference_key
- * @attr ref android.R.styleable#Preference_title
- * @attr ref android.R.styleable#Preference_summary
- * @attr ref android.R.styleable#Preference_order
- * @attr ref android.R.styleable#Preference_fragment
- * @attr ref android.R.styleable#Preference_layout
- * @attr ref android.R.styleable#Preference_widgetLayout
- * @attr ref android.R.styleable#Preference_enabled
- * @attr ref android.R.styleable#Preference_selectable
- * @attr ref android.R.styleable#Preference_dependency
- * @attr ref android.R.styleable#Preference_persistent
- * @attr ref android.R.styleable#Preference_defaultValue
- * @attr ref android.R.styleable#Preference_shouldDisableView
- */
 public class Preference implements Comparable<Preference> {
     /**
      * Specify for {@link #setOrder(int)} if a specific order is not required.
@@ -497,7 +457,7 @@ public class Preference implements Comparable<Preference> {
         if (imageView != null) {
             if (mIconResId != 0 || mIcon != null) {
                 if (mIcon == null) {
-                    mIcon = ContextCompat.getDrawable(getContext(), mIconResId);
+                    mIcon = getContext().getDrawable(mIconResId);
                 }
                 if (mIcon != null) {
                     imageView.setImageDrawable(mIcon);
@@ -629,7 +589,7 @@ public class Preference implements Comparable<Preference> {
      * @param iconResId The icon as a resource ID.
      */
     public void setIcon(int iconResId) {
-        setIcon(ContextCompat.getDrawable(mContext, iconResId));
+        setIcon(getContext().getDrawable(iconResId));
         mIconResId = iconResId;
     }
 
@@ -1001,7 +961,7 @@ public class Preference implements Comparable<Preference> {
      *          greater than 0 if this Preference sorts after <var>another</var>.
      */
     @Override
-    public int compareTo(@NonNull Preference another) {
+    public int compareTo( Preference another) {
         if (mOrder != another.mOrder) {
             // Do order comparison
             return mOrder - another.mOrder;
@@ -1301,9 +1261,9 @@ public class Preference implements Comparable<Preference> {
     protected void onSetInitialValue(boolean restorePersistedValue, Object defaultValue) {
     }
 
-    private void tryCommit(@NonNull SharedPreferences.Editor editor) {
+    private void tryCommit(SharedPreferences.Editor editor) {
         if (mPreferenceManager.shouldCommit()) {
-            SharedPreferencesCompat.EditorCompat.getInstance().apply(editor);
+            editor.apply();
         }
     }
 

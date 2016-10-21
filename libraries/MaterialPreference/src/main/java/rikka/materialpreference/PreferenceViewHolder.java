@@ -16,13 +16,13 @@
 
 package rikka.materialpreference;
 
-import android.support.annotation.IdRes;
-import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.View;
 
+import rikka.materialpreference.view.RecyclerView;
+
 /**
- * A {@link android.support.v7.widget.RecyclerView.ViewHolder} class which caches views associated
+ * A {@link rikka.materialpreference.view.RecyclerView.ViewHolder} class which caches views associated
  * with the default {@link Preference} layouts. Cached views can be retrieved by calling
  * {@link #findViewById(int)}.
  */
@@ -48,7 +48,7 @@ public class PreferenceViewHolder extends RecyclerView.ViewHolder {
      * @param id Resource ID of the view to find
      * @return The view, or null if no view with the requested ID is found.
      */
-    public View findViewById(@IdRes int id) {
+    public View findViewById(int id) {
         final View cachedView = mCachedViews.get(id);
         if (cachedView != null) {
             return cachedView;

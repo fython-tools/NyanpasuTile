@@ -23,7 +23,6 @@ import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,7 +58,7 @@ public abstract class PreferenceDialogFragment extends DialogFragment implements
     }
 
     @Override
-    public @NonNull
+    public
     Dialog onCreateDialog(Bundle savedInstanceState) {
         final Context context = getActivity();
         mWhichButtonClicked = DialogInterface.BUTTON_NEGATIVE;

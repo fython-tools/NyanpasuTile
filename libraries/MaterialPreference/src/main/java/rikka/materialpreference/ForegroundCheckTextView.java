@@ -7,7 +7,6 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.CheckedTextView;
@@ -184,7 +183,7 @@ public class ForegroundCheckTextView extends CheckedTextView {
     }
 
     @Override
-    public void draw(@NonNull Canvas canvas) {
+    public void draw( Canvas canvas) {
         super.draw(canvas);
 
         if (mForeground != null) {

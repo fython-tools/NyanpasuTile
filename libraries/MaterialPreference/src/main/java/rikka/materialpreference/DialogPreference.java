@@ -20,8 +20,6 @@ import android.app.DialogFragment;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -171,7 +169,7 @@ public abstract class DialogPreference extends Preference {
      * @param dialogIconRes The icon, as a resource ID.
      */
     public void setDialogIcon(int dialogIconRes) {
-        mDialogIcon = ContextCompat.getDrawable(getContext(), dialogIconRes);
+        mDialogIcon = getContext().getDrawable(dialogIconRes);
     }
 
     /**
@@ -264,6 +262,6 @@ public abstract class DialogPreference extends Preference {
         getPreferenceManager().showDialog(this);
     }
 
-    @NonNull
+
     abstract protected DialogFragment onCreateDialogFragment(String key);
 }

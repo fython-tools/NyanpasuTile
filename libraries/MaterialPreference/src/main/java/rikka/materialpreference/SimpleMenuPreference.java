@@ -10,10 +10,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.annotation.StyleRes;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -30,6 +26,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
+import rikka.materialpreference.view.LinearLayoutManager;
+import rikka.materialpreference.view.RecyclerView;
 
 /**
  * A version of {@link ListPreference} that presents the options in a drop down menu rather than a dialog.
@@ -58,6 +57,8 @@ public class SimpleMenuPreference extends ListPreference {
     private boolean mUseDialog;
 
     private int mPopupWidth;
+
+	private int DP80;
 
     public SimpleMenuPreference(Context context) {
         this(context, null);
@@ -100,6 +101,9 @@ public class SimpleMenuPreference extends ListPreference {
         a.recycle();
 
         updateEntries();
+
+	    final float scale = getContext().getResources().getDisplayMetrics().density;
+	    DP80 = (int) (80 * scale + 0.5f);
     }
 
     private Adapter createAdapter() {
@@ -117,7 +121,7 @@ public class SimpleMenuPreference extends ListPreference {
         popupWindow.setContentView(mRecyclerView);
         popupWindow.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
         popupWindow.setBackgroundDrawable(POPUP_BACKGROUND);
-        popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+        popupWindow.setHeight(DP80 * 2);
         popupWindow.setFocusable(true);
         popupWindow.setOutsideTouchable(false);
 
@@ -258,7 +262,7 @@ public class SimpleMenuPreference extends ListPreference {
 
             mRecyclerView.setOverScrollMode(View.OVER_SCROLL_NEVER);
 
-            mPopupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+            mPopupWindow.setHeight(DP80 * 2);
         }
 
         ViewGroup.LayoutParams lp = mRecyclerView.getLayoutParams();
@@ -271,7 +275,7 @@ public class SimpleMenuPreference extends ListPreference {
         mPopupWindow.setWidth(mPopupWidth);
 
         // calc what animation should use
-        @StyleRes int animationStyle;
+        int animationStyle;
         int anchor_center_y = anchor_y + mViewHolder.itemView.getHeight() / 2;
         int popup_center_y = y_off - top - statusBarHeight + height / 2;
 
@@ -302,7 +306,7 @@ public class SimpleMenuPreference extends ListPreference {
     }
 
     @Override
-    public void setEntries(@NonNull CharSequence[] entries) {
+    public void setEntries( CharSequence[] entries) {
         super.setEntries(entries);
         updateEntries();
     }
@@ -468,7 +472,7 @@ public class SimpleMenuPreference extends ListPreference {
         }
 
         @Override
-        public void writeToParcel(@NonNull Parcel dest, int flags) {
+        public void writeToParcel( Parcel dest, int flags) {
             super.writeToParcel(dest, flags);
             dest.writeInt(value);
         }
@@ -505,7 +509,7 @@ public class SimpleMenuPreference extends ListPreference {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    setValueIndex(holder.getAdapterPosition());
+                    setValueIndex(holder.getPosition());
 
                     if (mPopupWindow != null && mPopupWindow.isShowing()) {
                         mPopupWindow.dismiss();

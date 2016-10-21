@@ -17,7 +17,6 @@
 package rikka.materialpreference;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.AdapterView;
@@ -61,7 +60,7 @@ public class DropDownPreference extends ListPreference {
     }
 
     @Override
-    public void setEntries(@NonNull CharSequence[] entries) {
+    public void setEntries( CharSequence[] entries) {
         super.setEntries(entries);
         updateEntries();
     }

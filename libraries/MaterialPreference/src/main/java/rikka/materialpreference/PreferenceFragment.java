@@ -26,16 +26,14 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
-import android.support.annotation.XmlRes;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import rikka.materialpreference.view.LinearLayoutManager;
+import rikka.materialpreference.view.RecyclerView;
 
 /**
  * Shows a hierarchy of {@link Preference} objects as
@@ -289,7 +287,7 @@ public abstract class PreferenceFragment extends Fragment implements
         return view;
     }
 
-    @Nullable public DividerDecoration onCreateItemDecoration() {
+    public DividerDecoration onCreateItemDecoration() {
         return new DefaultDividerDecoration();
     }
 
@@ -421,7 +419,7 @@ public abstract class PreferenceFragment extends Fragment implements
      *
      * @param preferencesResId The XML resource ID to inflate.
      */
-    public void addPreferencesFromResource(@XmlRes int preferencesResId) {
+    public void addPreferencesFromResource(int preferencesResId) {
         requirePreferenceManager();
 
         setPreferenceScreen(mPreferenceManager.inflateFromResource(mStyledContext,
@@ -437,7 +435,7 @@ public abstract class PreferenceFragment extends Fragment implements
      *            to use as the root of the preference hierarchy, or null to use the root
      *            {@link PreferenceScreen}.
      */
-    public void setPreferencesFromResource(@XmlRes int preferencesResId, @Nullable String key) {
+    public void setPreferencesFromResource(int preferencesResId, String key) {
         requirePreferenceManager();
 
         final PreferenceScreen xmlRoot = mPreferenceManager.inflateFromResource(mStyledContext,
@@ -546,19 +544,6 @@ public abstract class PreferenceFragment extends Fragment implements
         return mList;
     }
 
-    /**
-     * Creates the {@link android.support.v7.widget.RecyclerView} used to display the preferences.
-     * Subclasses may override this to return a customized
-     * {@link android.support.v7.widget.RecyclerView}.
-     * @param inflater The LayoutInflater object that can be used to inflate the
-     *                 {@link android.support.v7.widget.RecyclerView}.
-     * @param parent The parent {@link android.view.View} that the RecyclerView will be attached to.
-     *               This method should not add the view itself, but this can be used to generate
-     *               the LayoutParams of the view.
-     * @param savedInstanceState If non-null, this view is being re-constructed from a previous
-     *                           saved state as given here
-     * @return A new RecyclerView object to be placed into the view hierarchy
-     */
     public RecyclerView onCreateRecyclerView(LayoutInflater inflater, ViewGroup parent,
             Bundle savedInstanceState) {
         RecyclerView recyclerView = (RecyclerView) inflater
@@ -577,12 +562,6 @@ public abstract class PreferenceFragment extends Fragment implements
         return recyclerView;
     }
 
-    /**
-     * Called from {@link #onCreateRecyclerView} to create the
-     * {@link android.support.v7.widget.RecyclerView.LayoutManager} for the created
-     * {@link android.support.v7.widget.RecyclerView}.
-     * @return A new {@link android.support.v7.widget.RecyclerView.LayoutManager} instance.
-     */
     public RecyclerView.LayoutManager onCreateLayoutManager() {
         return new LinearLayoutManager(getActivity());
     }
@@ -679,12 +658,12 @@ public abstract class PreferenceFragment extends Fragment implements
             for (int childViewIndex = 0; childViewIndex < childCount; childViewIndex++) {
                 final View view = parent.getChildAt(childViewIndex);
                 if (shouldDrawDividerAbove(view, parent)) {
-                    int top = (int) ViewCompat.getY(view);
+                    int top = (int) view.getY();
                     mDivider.setBounds(0, top, width, top + mDividerHeight);
                     mDivider.draw(c);
                 }
                 if (shouldDrawDividerBelow(view, parent)) {
-                    int top = (int) ViewCompat.getY(view) + view.getHeight();
+                    int top = (int) view.getY() + view.getHeight();
                     mDivider.setBounds(0, top, width, top + mDividerHeight);
                     mDivider.draw(c);
                 }
