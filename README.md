@@ -24,7 +24,6 @@ Not yet finished! 尚未完成！
 
 目前我们考虑到有趣且实用的功能有：
 
-- Weather Tile (天气瓷砖)
 - Scan QR Code Tile (扫描二维码瓷砖)
 - Adb Over LAN Tile (网络 Adb 调试瓷砖)
 

@@ -9,6 +9,7 @@
 -keep class moe.feng.nyanpasu.tile.model.** { *; }
 -keep class moe.feng.nyanpasu.tile.services.** { *; }
 -keep class moe.feng.nyanpasu.tile.tiles.** { *; }
+-keep class rikka.** { *; }
 
 -dontwarn com.squareup.okhttp.**
 -dontwarn com.squareup.okhttp3.**

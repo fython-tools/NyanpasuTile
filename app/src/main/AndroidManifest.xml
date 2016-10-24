@@ -36,15 +36,6 @@
 			</intent-filter>
 		</activity>
 
-		<service android:name=".tiles.WeatherTile"
-		         android:icon="@drawable/ic_wb_sunny_white_24dp"
-		         android:label="@string/weather_tile_label"
-		         android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
-			<intent-filter>
-				<action android:name="android.service.quicksettings.action.QS_TILE"/>
-			</intent-filter>
-		</service>
-
 		<service android:name=".tiles.ScanQrTile"
 		         android:icon="@drawable/ic_center_focus_weak_white_24dp"
 		         android:label="@string/scan_qr_tile_label"

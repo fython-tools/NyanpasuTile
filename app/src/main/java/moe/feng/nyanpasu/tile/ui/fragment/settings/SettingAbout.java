@@ -15,6 +15,8 @@ public class SettingAbout extends AbsPrefFragment {
 	public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
 		addPreferencesFromResource(R.xml.settings_about);
 
+		getActivity().setTitle(R.string.pref_about);
+
 		Preference mPrefVersion = findPreference("app_version");
 
 		String versionName = null;

@@ -1,0 +1,60 @@
+<resources>
+
+	<string name="app_name">Nyanpasu 瓷砖</string>
+
+	<!-- Main Settings -->
+	<string name="title_tiles">瓷砖</string>
+	<string name="title_other">其它</string>
+	<string name="pref_about">关于</string>
+	<string name="pref_donate_alipay">捐赠 (支付宝)</string>
+	<string name="pref_donate_alipay_address">316643843\@qq.com</string>
+	<string name="pref_donate_alipay_address_copied">已复制到粘贴板。</string>
+
+	<string name="pref_application">应用程序</string>
+	<string name="app_version_format">%1$s (%2$d)</string>
+	<string name="pref_github">Github 仓库</string>
+	<string name="pref_github_url">https://github.com/fython/NyanpasuTile</string>
+	<string name="pref_author">作者</string>
+	<string name="pref_weibo">新浪微博</string>
+	<string name="pref_weibo_url">http://weibo.com/fython</string>
+	<string name="pref_email">电子邮箱</string>
+	<string name="pref_email_address">fython\@163.com</string>
+
+	<!-- Weather -->
+	<string name="weather_tile_label">Weather</string>
+
+	<!-- Scan QR -->
+	<string name="scan_qr_tile_label">扫一扫</string>
+	<string name="pref_scan_method">默认二维码扫描方式</string>
+	<string-array name="pref_scan_method_arrays">
+		<item>Nyanpasu 瓷砖</item>
+		<item>支付宝</item>
+		<item>微信</item>
+	</string-array>
+	<string-array name="pref_scan_method_value">
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+	</string-array>
+
+	<!-- Scanner -->
+	<string name="activity_scanner">扫描二维码</string>
+	<string name="dialog_explanation_permission_title">申请权限被拒绝</string>
+	<string name="dialog_explanation_permission_message">二维码扫描是内置的功能，需要给予 「Nyanpasu 瓷砖」 相应权限才可以使用。缺少权限将无法使用本功能。</string>
+	<string name="dialog_explanation_permission_pos_btn">去设置</string>
+	<string name="toast_permission_denied">权限被拒绝，无法启动相机。</string>
+	<string name="toast_permission_denied_action">设置</string>
+
+	<string name="dialog_result">结果</string>
+	<string name="dialog_result_copy_btn">复制到粘贴板</string>
+
+	<!-- Network Adb -->
+	<string name="network_adb_tile_label">网络调试 A</string>
+
+	<!-- Root Check -->
+	<string name="root_check_desc">这项操作需要 Root 用户权限。为顺利获取我们弹出该窗口来初始化权限。 </string>
+	<string name="root_check_state_please_wait">请等候……</string>
+	<string name="root_check_state_failed">获取 Root 权限失败。</string>
+	<string name="root_check_state_finish">完成！现在你可以关闭该窗口了。</string>
+
+</resources>

@@ -1,0 +1,60 @@
+<resources>
+
+	<string name="app_name">Nyanpasu 瓷磚</string>
+
+	<!-- Main Settings -->
+	<string name="title_tiles">瓷磚</string>
+	<string name="title_other">其他</string>
+	<string name="pref_about">關於</string>
+	<string name="pref_donate_alipay">捐贈 (支付寶)</string>
+	<string name="pref_donate_alipay_address">316643843\@qq.com</string>
+	<string name="pref_donate_alipay_address_copied">已拷貝到粘貼板。</string>
+
+	<string name="pref_application">應用程式</string>
+	<string name="app_version_format">%1$s (%2$d)</string>
+	<string name="pref_github">Github 倉庫</string>
+	<string name="pref_github_url">https://github.com/fython/NyanpasuTile</string>
+	<string name="pref_author">作者</string>
+	<string name="pref_weibo">新浪微博</string>
+	<string name="pref_weibo_url">http://weibo.com/fython</string>
+	<string name="pref_email">電子郵箱</string>
+	<string name="pref_email_address">fython\@163.com</string>
+
+	<!-- Weather -->
+	<string name="weather_tile_label">Weather</string>
+
+	<!-- Scan QR -->
+	<string name="scan_qr_tile_label">掃描二維碼</string>
+	<string name="pref_scan_method">默認二維碼掃描方式</string>
+	<string-array name="pref_scan_method_arrays">
+		<item>Nyanpasu 瓷磚</item>
+		<item>支付寶</item>
+		<item>WeChat</item>
+	</string-array>
+	<string-array name="pref_scan_method_value">
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+	</string-array>
+
+	<!-- Scanner -->
+	<string name="activity_scanner">掃描二維碼</string>
+	<string name="dialog_explanation_permission_title">申請權限被拒絕</string>
+	<string name="dialog_explanation_permission_message">二維碼掃描是本程式內建功能，需要你許可 「Nyanpasu 瓷磚」 相應權限才可以正常運作。缺少權限將無法使用本功能。</string>
+	<string name="dialog_explanation_permission_pos_btn">去設定</string>
+	<string name="toast_permission_denied">權限被拒絕，無法啟動相機。</string>
+	<string name="toast_permission_denied_action">設定</string>
+
+	<string name="dialog_result">結果</string>
+	<string name="dialog_result_copy_btn">拷貝到粘貼板</string>
+
+	<!-- Network Adb -->
+	<string name="network_adb_tile_label">網路調試 ADB</string>
+
+	<!-- Root Check -->
+	<string name="root_check_desc">這項操作需要 Root 用戶權限。為順利獲取我們彈出該窗口來初始化權限。 </string>
+	<string name="root_check_state_please_wait">請等候……</string>
+	<string name="root_check_state_failed">獲取 Root 权限失败。</string>
+	<string name="root_check_state_finish">完畢！現在你可以關閉該窗口了。</string>
+
+</resources>
