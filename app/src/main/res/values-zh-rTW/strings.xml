@@ -48,6 +48,9 @@
 	<string name="dialog_result">結果</string>
 	<string name="dialog_result_copy_btn">拷貝到粘貼板</string>
 
+	<!-- Alipay Barcode -->
+	<string name="alipay_barcode_tile_label">支付寶付款碼</string>
+
 	<!-- Network Adb -->
 	<string name="network_adb_tile_label">網路調試 ADB</string>
 

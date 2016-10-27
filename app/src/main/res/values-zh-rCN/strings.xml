@@ -48,8 +48,11 @@
 	<string name="dialog_result">结果</string>
 	<string name="dialog_result_copy_btn">复制到粘贴板</string>
 
+	<!-- Alipay Barcode -->
+	<string name="alipay_barcode_tile_label">支付宝付款码</string>
+
 	<!-- Network Adb -->
-	<string name="network_adb_tile_label">网络调试 A</string>
+	<string name="network_adb_tile_label">网络调试 ADB</string>
 
 	<!-- Root Check -->
 	<string name="root_check_desc">这项操作需要 Root 用户权限。为顺利获取我们弹出该窗口来初始化权限。 </string>

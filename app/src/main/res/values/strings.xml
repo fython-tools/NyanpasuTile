@@ -48,6 +48,9 @@
 	<string name="dialog_result">Result</string>
 	<string name="dialog_result_copy_btn">Copy to clipboard</string>
 
+	<!-- Alipay Barcode -->
+	<string name="alipay_barcode_tile_label">Alipay Barcode</string>
+
 	<!-- Network Adb -->
 	<string name="network_adb_tile_label">Adb Over LAN</string>
 

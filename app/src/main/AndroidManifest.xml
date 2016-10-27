@@ -45,6 +45,15 @@
 			</intent-filter>
 		</service>
 
+		<service android:name=".tiles.AlipayBarcodeTile"
+		         android:icon="@drawable/ic_barcode_white_48px"
+		         android:label="@string/alipay_barcode_tile_label"
+		         android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+			<intent-filter>
+				<action android:name="android.service.quicksettings.action.QS_TILE"/>
+			</intent-filter>
+		</service>
+
 		<service android:name=".tiles.NetworkAdbTile"
 		         android:icon="@drawable/ic_phonelink_off_white_24dp"
 		         android:label="@string/network_adb_tile_label"
