@@ -2,6 +2,7 @@ package moe.feng.nyanpasu.tile.tiles;
 
 import android.service.quicksettings.TileService;
 
+import moe.feng.alipay.zerosdk.AlipayZeroSdk;
 import moe.feng.nyanpasu.tile.api.ScanQrApi;
 import moe.feng.nyanpasu.tile.util.Settings;
 
@@ -20,7 +21,7 @@ public class ScanQrTile extends TileService {
 		super.onClick();
 		switch (mSettings.get("method", "0")) {
 			case "1":
-				ScanQrApi.openAlipayScan(this);
+				AlipayZeroSdk.openAlipayScan(this);
 				break;
 			case "2":
 				ScanQrApi.openWeChatScan(this);
